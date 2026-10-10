@@ -1,0 +1,12 @@
+APROVA ICET v23 — FREQUÊNCIA
+
+1) No novo Supabase, execute o arquivo:
+   sql/importar_frequencia_jun_set_2026.sql
+
+Ele: cria/ajusta os status da tabela frequencias; cadastra os alunos que aparecem na planilha mas ainda não estavam na base; marca como inativo quem tem "FOI DESLIGADO DO PROJETO"; e importa as marcações diárias de junho a setembro de 2026.
+
+2) Depois abra o site pelo Live Server.
+3) Abra Alunos -> Ver desempenho. A frequência diária aparecerá por mês e cada dia poderá ser editado.
+4) Para futuras planilhas, use Frequência -> Importar planilha.
+
+Atenção: a importação usa as marcações P/F/FJ/--- da planilha, não os totais de faltas/presenças.

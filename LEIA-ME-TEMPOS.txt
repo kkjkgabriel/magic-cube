@@ -1,0 +1,8 @@
+APROVA ICET — TEMPO DE PROVA
+
+1. Antes de usar o campo de tempo e os relatórios, execute o arquivo sql_tempos_prova.sql no SQL Editor do Supabase.
+2. O SQL cria a tabela tempos_prova e importa os tempos encontrados na planilha para agosto e setembro. Junho permanece sem tempo registrado.
+3. No menu Desempenho, selecione simulado, dia e aluno. Preencha horas e minutos (opcional) e clique em Salvar resultado.
+4. A análise de tempo aparece nos relatórios individual e da turma. A média considera apenas alunos com tempo preenchido.
+
+A importação histórica usa ON CONFLICT DO NOTHING: registros de tempo que já existirem no banco não serão substituídos.

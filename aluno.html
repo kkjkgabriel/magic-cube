@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aprova ICET | Desempenho do aluno</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="student-page student-dashboard">
+  <a class="back" href="index.html">← Voltar ao painel</a>
+
+  <section class="student-header panel">
+    <div class="profile">
+      <img class="profile-logo" src="assets/logo-aprova-icet.png" alt="Aprova ICET">
+      <div class="profile-main">
+        <span class="section-label">ACOMPANHAMENTO INDIVIDUAL</span>
+        <h1 id="nomeAluno">Carregando...</h1>
+        <p id="resumoAluno">Carregando dados do aluno...</p>
+      </div>
+    </div>
+    <div class="student-header-meta" id="participacaoResumo"></div>
+  </section>
+
+  <section class="metric-grid student-metrics">
+    <div class="metric metric-acerto"><span>ACERTOS</span><b id="acertos">—</b><small id="pctAcertos">—</small></div>
+    <div class="metric metric-erro"><span>ERROS</span><b id="erros">—</b><small id="pctErros">—</small></div>
+    <div class="metric metric-branco"><span>BRANCOS</span><b id="brancos">—</b><small id="pctBrancos">—</small></div>
+    <div class="metric metric-aprov"><span>APROVEITAMENTO</span><b id="aproveitamento">—</b><small>acertos ÷ questões registradas</small></div>
+  </section>
+
+  <section class="panel student-charts-panel">
+    <div class="panel-head simple">
+      <div><span class="section-label">VISÃO GRÁFICA</span><h2>Leitura rápida do desempenho</h2><p>Os gráficos ajudam a visualizar os pontos fortes, as dificuldades e a evolução do aluno.</p></div>
+    </div>
+    <div class="student-charts-grid">
+      <article class="student-chart-card student-chart-wide">
+        <div class="chart-card-head"><div><h3>Desempenho por área do ENEM</h3><span>Aproveitamento do aluno em cada área</span></div></div>
+        <div class="student-chart-wrap"><canvas id="graficoAlunoAreasEnem"></canvas></div>
+      </article>
+      <article class="student-chart-card">
+        <div class="chart-card-head"><div><h3>Desempenho por área do Aprova ICET</h3><span>Percentual de acertos por área</span></div></div>
+        <div class="student-chart-wrap"><canvas id="graficoAlunoAreasAprova"></canvas></div>
+      </article>
+      <article class="student-chart-card">
+        <div class="chart-card-head"><div><h3>Distribuição dos resultados</h3><span>Acertos, erros e questões em branco</span></div></div>
+        <div class="student-chart-wrap student-chart-doughnut"><canvas id="graficoAlunoResultados"></canvas></div>
+      </article>
+      <article class="student-chart-card student-chart-wide">
+        <div class="chart-card-head"><div><h3>Evolução por simulado</h3><span>Percentual por simulado, somando os dois dias; ausência ou falta de respostas resulta em 0%</span></div></div>
+        <div class="student-chart-wrap"><canvas id="graficoAlunoEvolucao"></canvas></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel frequency-panel">
+    <div class="panel-head simple">
+      <div><span class="section-label">FREQUÊNCIA</span><h2>Frequência do aluno</h2><p>Os dados abaixo são calculados pelas marcações diárias. Você pode editar qualquer dia.</p></div>
+      <div class="frequency-summary-actions"><span id="frequenciaStatusAluno" class="form-msg"></span></div>
+    </div>
+    <div id="frequenciaResumoAluno" class="frequency-summary-grid"></div>
+    <div id="frequenciaPorMes" class="frequency-months"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head simple">
+      <div><span class="section-label">VISÃO GERAL</span><h2>Desempenho por área do ENEM</h2><p>Comparação entre acertos, erros, brancos e total de questões registradas.</p></div>
+    </div>
+    <div id="areasEnem" class="area-enem-grid"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head simple">
+      <div><span class="section-label">ANÁLISE PEDAGÓGICA</span><h2>Desempenho por disciplina</h2><p>Detalhamento para identificar conteúdos com maior e menor aproveitamento.</p></div>
+    </div>
+    <div id="disciplinas" class="discipline-performance"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head simple">
+      <div><span class="section-label">EVOLUÇÃO</span><h2>Desempenho por simulado</h2><p>Veja como o resultado varia entre os dias e simulados realizados.</p></div>
+    </div>
+    <div id="simulados" class="simulado-performance"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head simple">
+      <div><span class="section-label">DETALHAMENTO</span><h2>Resultados por questão</h2><p>Resumo das questões registradas, organizado por simulado e dia.</p></div>
+      <select id="filtroResultado" class="filter-select student-filter">
+        <option value="todos">Todas</option><option value="Acerto">Acertos</option><option value="Erro">Erros</option><option value="Branco">Brancos</option>
+      </select>
+    </div>
+    <div id="questoesResumo" class="question-summary-grid"></div>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="js/supabase.js?v=29"></script>
+<script src="js/aluno.js?v=30"></script>
+</body>
+</html>

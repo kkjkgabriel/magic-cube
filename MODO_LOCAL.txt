@@ -1,0 +1,12 @@
+MODO LOCAL TEMPORÁRIO
+
+Esta versão usa os dados importados anteriormente do Supabase, armazenados em data/*.json.
+Os cadastros/alterações feitos durante este modo ficam salvos no localStorage do navegador.
+
+Dados iniciais:
+- 87 alunos
+- 2 simulados
+- 360 questões
+- 14.379 respostas
+
+Quando a API do Supabase voltar a responder, o arquivo js/supabase.js poderá ser trocado para o cliente Supabase novamente.
